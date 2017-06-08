@@ -9,7 +9,9 @@ get '/' do
   resp = Net::HTTP.get_response(URI.parse(url))
   buffer = resp.body
   result = JSON.parse(buffer) 
-  puts result 
+  result["data"].each do |img|
+    p img["url"]
+  end
 end
 
 post '/gateway' do

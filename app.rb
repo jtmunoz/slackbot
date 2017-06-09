@@ -4,15 +4,17 @@ require 'json'
 require 'net/http'
 
 
-get '/' do
-  url = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=dc6zaTOxFJmzC&limit=5"
-  resp = Net::HTTP.get_response(URI.parse(url))
-  buffer = resp.body
-  result = JSON.parse(buffer) 
-  result["data"].each do |img|
-    p img["url"]
-  end
-end
+# get '/' do
+#   url = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=dc6zaTOxFJmzC&limit=5"
+#   resp = Net::HTTP.get_response(URI.parse(url))
+#   buffer = resp.body
+#   result = JSON.parse(buffer) 
+#   result["data"].each do |img|
+#     puts img["url"]
+#     puts img["images"]["fixed_height"]["width"]
+#     puts img["images"]["fixed_height"]["height"]
+#   end
+# end
 
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip

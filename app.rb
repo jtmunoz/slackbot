@@ -18,15 +18,29 @@ require 'net/http'
 
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip
+  # query = params[:text].gsub(params[:trigger_word], '').strip
 
-  action, repo = message.split('_').map {|c| c.strip.downcase }
-  repo_url = "https://api.github.com/repos/#{repo}"
+  # action, repo = message.split('_').map {|c| c.strip.downcase }
+  action, query = message.split('_').map {|c| c.strip.downcase }
+
+  # repo_url = "https://api.github.com/repos/#{repo}"
+    giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=5"
+
 
   case action
-    when 'issues'
-      resp = HTTParty.get(repo_url)
+    when 'search'
+      # resp = HTTParty.get(repo_url)
+      resp = HTTParty.get(giphy_url)
+
       resp = JSON.parse resp.body
-      respond_message "There are #{resp['open_issues_count']} open issues on #{repo}"
+      
+      # respond_message "There are #{resp['open_issues_count']} open issues on #{repo}"
+      # respond_message "#{resp['body']}"
+       result["data"].each do |img|
+        puts img["url"]
+        puts img["images"]["fixed_height"]["width"]
+        puts img["images"]["fixed_height"]["height"]
+      end 
   end
 end
 

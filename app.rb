@@ -30,7 +30,7 @@ post '/gateway' do
       when 'trending'
         giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
         resp = HTTParty.get(giphy_url)
-        resp = JSON.parse resp.body
+        resp = JSON.parse(resp.body)
         resp["data"].each do |gif|
           respond_message gif["url"]
         end

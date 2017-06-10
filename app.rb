@@ -42,7 +42,7 @@ post '/gateway' do
   #       puts img["images"]["fixed_height"]["height"]
   #     end 
   # end
-  respond_message giphy_url
+  respond_message params.inspect
 end
 
 def respond_message message

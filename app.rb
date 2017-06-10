@@ -17,17 +17,23 @@ require 'net/http'
 # end
 
 post '/gateway' do
-  # message = params[:text].gsub(params[:trigger_word], '').strip
+  message = params[:text].gsub(params[:trigger_word], '').strip
   # # query = params[:text].gsub(params[:trigger_word], '').strip
 
   # # action, repo = message.split('_').map {|c| c.strip.downcase }
   # action, query = message.split('_').map {|c| c.strip.downcase }
 
   # repo_url = "https://api.github.com/repos/#{repo}"
-    # giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=5"
-    giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
+  # giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=5"
 
-  # case action
+  case action
+      when 'trending'
+        giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
+        resp = HTTParty.get(repo_url)
+        resp = JSON.parse resp.body
+        resp["data"].each do |gif|
+          respond_message gif["url"]
+        end
   #   when 'search'
   #     # resp = HTTParty.get(repo_url)
   #     resp = HTTParty.get(giphy_url)
@@ -42,7 +48,8 @@ post '/gateway' do
   #       puts img["images"]["fixed_height"]["height"]
   #     end 
   # end
-  respond_message params.inspect
+  # respond_message params.inspect
+  end
 end
 
 def respond_message message

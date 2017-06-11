@@ -21,7 +21,7 @@ post '/gateway' do
   # # query = params[:text].gsub(params[:trigger_word], '').strip
 
   # # action, repo = message.split('_').map {|c| c.strip.downcase }
-  # action, query = message.split('_').map {|c| c.strip.downcase }
+  action, query = message.split('_').map {|c| c.strip.downcase }
 
   # repo_url = "https://api.github.com/repos/#{repo}"
   # giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=5"
@@ -43,6 +43,8 @@ post '/gateway' do
   #     end 
   # end
   respond_message params.inspect
+  respond_message action
+  respond_message query
 end
 
 def respond_message message

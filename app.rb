@@ -16,6 +16,14 @@ require 'net/http'
 #   end
 # end
 
+get '/' do
+  redirect '/gateway' 
+end
+
+get '/gateway' do
+  "hello"
+end
+
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip
   # # query = params[:text].gsub(params[:trigger_word], '').strip
@@ -42,9 +50,8 @@ post '/gateway' do
   #       puts img["images"]["fixed_height"]["height"]
   #     end 
   # end
-  respond_message params.inspect
-  respond_message action
-  respond_message query
+  # message = "#{params.inspect} #{action} #{query}"
+  respond_message "#{params.inspect}, #{action}, #{query}"
 end
 
 def respond_message message

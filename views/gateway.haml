@@ -1,0 +1,10 @@
+%form{ :action => "", :method => "post"}
+  %fieldset
+    %ul
+      %li
+        %label{:for => "action"} Action:
+        %input{:type => "text", :name => "action", :class => "text"}
+      %li
+        %label{:for => "query"} Query:
+        %input{:type => "text", :name => "query", :class => "text"}
+    %input{:type => "submit", :value => "Send", :class => "button"}

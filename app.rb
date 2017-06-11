@@ -21,7 +21,7 @@ get '/' do
 end
 
 get '/gateway' do
-  "hello"
+  haml :gateway
 end
 
 post '/gateway' do

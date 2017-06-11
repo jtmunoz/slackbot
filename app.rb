@@ -18,10 +18,11 @@ require 'net/http'
 
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip
-  
+  respond_message message
   action, query = message.split('_').map {|c| c.strip.downcase }
   respond_message action
   respond_message query
+
   case action
     when 'trending'
       respond_message "INSIDE TRENDING"

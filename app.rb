@@ -31,9 +31,10 @@ post '/gateway' do
       giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=1"     
       resp = HTTParty.get(giphy_url)
       resp = JSON.parse(resp.body)
-      resp["data"].each do |gif|
-        respond_message(gif["url"])
-      end
+      # resp["data"].each do |gif|
+      #   respond_message(gif["url"])
+      # end
+      respond_message resp
     when 'search'
       giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=1"
       resp = HTTParty.get(giphy_url)

@@ -33,7 +33,7 @@ post '/gateway' do
 
   # repo_url = "https://api.github.com/repos/#{repo}"
   # giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=5"
-    giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
+  giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
 
   # case action
   #   when 'search'

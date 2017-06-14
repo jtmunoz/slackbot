@@ -33,9 +33,40 @@ post '/gateway' do
 
   # repo_url = "https://api.github.com/repos/#{repo}"
   # giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=5"
-    giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
+  # giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
 
-  # case action
+  case action
+      when 'trending'
+        giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=2"
+        
+        resp = HTTParty.get(giphy_url)
+    
+
+        buffer = resp.body
+          # puts "buffer" * 10
+          
+
+        result = JSON.parse(buffer) 
+          # puts "results" * 10
+          # puts result
+          # puts result.class
+
+       
+        respond_message result["data"][0]["url"]
+        
+
+        # result["data"].each do |gif|
+        #     puts gif["url"] 
+        #     message << gif["url"]
+        # end
+
+        # puts message
+        # respond_message result["data"]["url"]
+
+        
+        # puts result["data"].length
+        
+  end
   #   when 'search'
   #     # resp = HTTParty.get(repo_url)
   #     resp = HTTParty.get(giphy_url)
@@ -51,7 +82,7 @@ post '/gateway' do
   #     end 
   # end
   # message = "#{params.inspect} #{action} #{query}"
-  respond_message "#{params.inspect}, #{action}, #{query}"
+  # respond_message "#{params.inspect}, #{action}, #{query}"
 end
 
 def respond_message message

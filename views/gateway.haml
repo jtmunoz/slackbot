@@ -1,10 +1,13 @@
-%form{ :action => "", :method => "post"}
+%form{ :action => "/gateway", :method => "post"}
   %fieldset
-    %ul
-      %li
-        %label{:for => "action"} Action:
-        %input{:type => "text", :name => "action", :class => "text"}
-      %li
-        %label{:for => "query"} Query:
-        %input{:type => "text", :name => "query", :class => "text"}
+  
+    %label{:for => "Trigger"} Trigger Word:
+    %input{:type => "text", :name => "trigger_word", :class => "text"}
+    
+    %label{:for => "action"} Action:
+    %input{:type => "text", :name => "text", :class => "text"}
+    
+    %label{:for => "query"} Query:
+    %input{:type => "text", :name => "query", :class => "text"}
+    
     %input{:type => "submit", :value => "Send", :class => "button"}

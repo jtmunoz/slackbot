@@ -14,12 +14,17 @@ end
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip
  
-  query = params[:query].gsub(' ', '+')
-  action = message.split('_').map {|c| c.strip.downcase }.first
-  
+  # query = params[:query].gsub(' ', '+')
+  # action, query = message.split(' ').map {|c| c.strip.downcase }
+  message = message.split(' ').map {|c| c.strip.downcase }
+  action = message[0]
+  message.shift
+  query = message.join('+') 
+  puts message
+  puts query
   case action
     when 'trending'
-      giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=2"
+      giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=1"
       resp = HTTParty.get(giphy_url)
       buffer = resp.body
       result = JSON.parse(buffer)        

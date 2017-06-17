@@ -19,5 +19,5 @@ chat-bot search star wars
 
 result https://giphy.com/gifs/its-a-trap-admiral-ackbar-8McNH1aXZnVyE
 
-![Example Result GIF](https://giphy.com/gifs/its-a-trap-admiral-ackbar-8McNH1aXZnVyE)
-Format: ![Alt Text](url)
+![Example Result GIF](https://media.giphy.com/media/8McNH1aXZnVyE/giphy.gif)
+

@@ -18,3 +18,6 @@ Example once configured:
 chat-bot search star wars
 
 result https://giphy.com/gifs/its-a-trap-admiral-ackbar-8McNH1aXZnVyE
+
+![Example Result GIF](https://giphy.com/gifs/its-a-trap-admiral-ackbar-8McNH1aXZnVyE)
+Format: ![Alt Text](url)

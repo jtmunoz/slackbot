@@ -1,6 +1,6 @@
 # slackbot
 
-A simple slack-bot that calls upon the Giphy API.
+A simple slack-bot that calls upon the Giphy API. 
 
 Instructions for Slack Integration.
 
@@ -13,12 +13,17 @@ Instructions for Slack Integration.
 7. Save Settings
 8. Enjoy
 
-Example once configured:
-chat-bot search star wars
+Example once configured:  
+
+chat-bot search star wars  
+
 ![Example Search Query](images/screenshot.png)
 
 
-Result:
+Example Result:  
+
+[https://media.giphy.com/media/8McNH1aXZnVyE/giphy.gif](https://media.giphy.com/media/8McNH1aXZnVyE/giphy.gif)  
+
 ![Example Result GIF](https://media.giphy.com/media/8McNH1aXZnVyE/giphy.gif)
 
 

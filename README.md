@@ -15,6 +15,7 @@ Instructions for Slack Integration.
 
 Example once configured:
 chat-bot search star wars
+![Example Search Query](images/screenshot.png)
 
 
 Result:

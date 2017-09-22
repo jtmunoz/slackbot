@@ -16,9 +16,6 @@ GEM
       faraday_middleware (~> 0.9)
       faraday_middleware-parse_oj (~> 0.3)
       launchy (~> 2.4)
-    haml (5.0.1)
-      temple (>= 0.8.0)
-      tilt
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
     launchy (2.4.3)
@@ -38,7 +35,6 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
-    temple (0.8.0)
     tilt (2.0.7)
 
 PLATFORMS
@@ -46,10 +42,9 @@ PLATFORMS
 
 DEPENDENCIES
   giphy
-  haml
   httparty
   shotgun
   sinatra
 
 BUNDLED WITH
-   1.14.6
+   1.15.3

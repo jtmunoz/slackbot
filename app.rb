@@ -12,8 +12,11 @@ get '/gateway' do
 end
 
 post '/gateway' do
+  puts params
   message = params[:text].gsub(params[:trigger_word], '').strip
+  puts message
   message = message.split(' ').map {|c| c.strip.downcase }
+  puts message
   action = message[0]
   message.shift
   query = message.join('+') 
@@ -23,7 +26,8 @@ post '/gateway' do
       resp = HTTParty.get(giphy_url)
       buffer = resp.body
       result = JSON.parse(buffer)        
-      respond_message result["data"][0]["url"]
+      @src = respond_message result["data"][rand(0..25)]["url"]
+
     when 'search'
       giphy_url = "http://api.giphy.com/v1/gifs/search?q=#{query}&api_key=dc6zaTOxFJmzC&limit=1"
       resp = HTTParty.get(giphy_url)

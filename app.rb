@@ -22,7 +22,7 @@ post '/gateway' do
   query = message.join('+') 
   case action
     when 'trending'
-      giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=25"
+      giphy_url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=5"
       # puts giphy_url
       resp = HTTParty.get(giphy_url)
       # puts resp
@@ -31,7 +31,7 @@ post '/gateway' do
       result = JSON.parse(buffer) 
       puts "HERE  " * 10       
       puts result
-      @src =  result["data"][rand(0..25)]["url"]["text"]
+      @src =  result["data"][rand(0...5)]["url"]["text"]
       # @src = respond_message result["data"][rand(0..25)]["url"]
       puts @src
       haml :gif
